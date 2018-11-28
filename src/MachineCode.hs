@@ -295,6 +295,11 @@ data MC = ADD  MCVal MCVal MCVal -- add  $d, $s, $t --> $d = $s + $t
         | OR   MCVal MCVal MCVal -- or   $d, $s, $t --> $d = $s | $t
         | ORi  MCVal MCVal MCVal -- ori  $d, $s, i  --> $d = $s | i
         | XORi MCVal MCVal MCVal 
+        | SEQ  MCVal MCVal MCVal 
+        | SGT  MCVal MCVal MCVal
+        | SGE  MCVal MCVal MCVal
+        | SLE  MCVal MCVal MCVal
+        | SNE  MCVal MCVal MCVal
         | MULT MCVal MCVal       -- mult $s, $t     --> hi:lo = $s * $t
         | DIV  MCVal MCVal       -- div  $s, $t     --> lo = $s / $t; hi = $s % $t
         
@@ -323,6 +328,11 @@ instance Show MC where
   show (AND d t s)  = "and "  ++ addcommas [d,t,s]
   show (OR d t s)   = "or "   ++ addcommas [d,t,s]
   show (XORi d t s) = "xor "  ++ addcommas [d,t,s]
+  show (SEQ d t s)  = "seq "  ++ addcommas [d,t,s]
+  show (SGT d t s)  = "sgt "  ++ addcommas [d,t,s]
+  show (SGE d t s)  = "sge "  ++ addcommas [d,t,s]
+  show (SLE d t s)  = "sle "  ++ addcommas [d,t,s]
+  show (SNE d t s)  = "sne "  ++ addcommas [d,t,s]
   show (ORi d t s)  = "ori "  ++ addcommas [d,t,s]
   show (MULT t s)   = "mult " ++ addcommas [t,s]
   show (DIV t s)    = "div "  ++ addcommas [t,s]
@@ -433,10 +443,49 @@ escribirCodigoSimple tablaDeRegistros (TACOperationB "//" str op1 op2)
     s   = operandoAMaquina op1 tablaDeRegistros
     t   = operandoAMaquina op2 tablaDeRegistros
 
--- escribirCodigoSimple (TACOperationB ">=" str op1 op2) =
--- escribirCodigoSimple (TACOperationB "<=" str op1 op2) = 
--- escribirCodigoSimple (TACOperationB "==" str op1 op2) =
--- escribirCodigoSimple (TACOperationB "/=" str op1 op2) =
+escribirCodigoSimple tablaDeRegistros (TACOperationB ">=" str op1 op2)
+  | s == t                                   = [Li d mcone]
+  | isLiteral op1 && isLiteral op2 && s /= t = escribirCodigoSimple tablaDeRegistros (TACOperationB "<" str op2 op1)
+  | isLiteral op1                            = [ORi d Zero s, SGE d d t]
+  | isLiteral op2                            = [ORi d Zero t, SGE d t d]
+  | otherwise                                = [SGE d s t]
+  where
+    d   = operandoAMaquina str tablaDeRegistros
+    s   = operandoAMaquina op1 tablaDeRegistros
+    t   = operandoAMaquina op2 tablaDeRegistros
+
+escribirCodigoSimple tablaDeRegistros (TACOperationB "<=" str op1 op2)
+  | s == t                                   = [Li d mcone]
+  | isLiteral op1 && isLiteral op2 && s /= t = escribirCodigoSimple tablaDeRegistros (TACOperationB "<" str op1 op2)
+  | isLiteral op1                            = [ORi d Zero s, SLE d d t]
+  | isLiteral op2                            = [ORi d Zero t, SLE d t d]
+  | otherwise                                = [SLE d s t]
+  where
+    d   = operandoAMaquina str tablaDeRegistros
+    s   = operandoAMaquina op1 tablaDeRegistros
+    t   = operandoAMaquina op2 tablaDeRegistros
+
+escribirCodigoSimple tablaDeRegistros (TACOperationB "==" str op1 op2)
+  | s == t                                   = [Li d mcone]
+  | isLiteral op1 && isLiteral op2 && s /= t = [Li d mczero]
+  | isLiteral op1                            = [ORi d Zero s, SEQ d d t]
+  | isLiteral op2                            = [ORi d Zero t, SEQ d d s]
+  | otherwise                                = [SEQ d s t]
+  where
+      d   = operandoAMaquina str tablaDeRegistros
+      s   = operandoAMaquina op1 tablaDeRegistros
+      t   = operandoAMaquina op2 tablaDeRegistros
+
+escribirCodigoSimple tablaDeRegistros (TACOperationB "/=" str op1 op2)
+  | s == t                                   = [Li d mczero]
+  | isLiteral op1 && isLiteral op2 && s /= t = [Li d mcone]
+  | isLiteral op1                            = [ORi d Zero s, SNE d d t]
+  | isLiteral op2                            = [ORi d Zero t, SNE d d s]
+  | otherwise                                = [SNE d s t]
+  where
+      d   = operandoAMaquina str tablaDeRegistros
+      s   = operandoAMaquina op1 tablaDeRegistros
+      t   = operandoAMaquina op2 tablaDeRegistros
 
 escribirCodigoSimple tablaRegistros (TACStore store opn) 
   | d == s        = []
