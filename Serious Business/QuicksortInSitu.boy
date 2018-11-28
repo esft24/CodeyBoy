@@ -1,0 +1,74 @@
+let arregloGlobal: Array<Int, 1>
+
+toInt(x: String) {
+  return 42
+}
+
+func swap($a: Int, $b: Int): Void {
+  let t: Int = a
+  a = b
+  b = t
+}
+
+func quicksort(m: Int, n: Int): Void {
+  let i: Int
+  let j: Int
+  let v: Int
+  let x: Int
+
+  if n <= m {
+    return
+  }
+
+  i = m - 1
+  j = n
+  v = arregloGlobal[n]
+
+  while True {
+    i = i + 1
+    while arregloGlobal[i] < v {
+      i = i + 1
+    }
+    j = j - 1
+    while arregloGlobal[j] > v {
+      j = j - 1
+    }
+    if i >= j {
+      break
+    }
+    swap(a[i], a[j])
+  }
+  swap(a[i], a[n])
+  quicksort(m, j)
+  quicksort(i+1, n)
+}
+
+let usuarioQuiereSeguir: Bool
+
+while usuarioQuiereSeguir {
+  let entrar: Bool = False
+  print("Que desea ordenar?\nFloats: F\nIntegers: I\nCharacters: C")
+  let seleccion: String = input()
+  if seleccion != "F" || seleccion != "I" || seleccion != "C" {
+    print("Por favor eliga una opcion correcta")
+  } | _ {
+    print("Cual es el tamaño del arreglo? (1-100)")
+    tamaño = toInt(input())
+    if seleccion == "F" {
+      let arregloGlobal: Array<Float, tamaño>
+      quicksort(0, tamaño-1)
+    } | seleccion == "I" {
+      let arregloGlobal: Array<Int, tamaño>
+      quicksort(0, tamaño-1)
+    } | _ {
+      let arregloGlobal: Array<Char, tamaño>
+      quicksort(0, tamaño-1)
+    }
+    print("Desea continuar? (S/N)")
+    seleccion = input()
+
+    if (seleccion == "N"){
+      usuarioQuiereSeguir = False
+    }
+  }
+}

@@ -1,0 +1,5 @@
+let x: Int = 1 + 2 + 1 + True
+let y: Int = 1 + x
+
+let z: Float = 2 + 2.5
+let a: Bool = False || 2 > 3

@@ -1,0 +1,104 @@
+# Booleanos
+
+let x: Bool = True
+let y: Bool = False
+
+# Enteros
+
+let bestNumber: Int = 42
+
+# Caracteres
+
+let thisIsaChar: Char = 'z'
+
+# Punto Flotante
+
+let bestestNumber: Float = 42.0
+
+# Arreglos
+
+let littleArray: Array = Arr(1,2,3,4,5,6)
+
+# Strings
+
+let whatDoesItSays: String = "It says HI!"
+
+# Registros
+#Podemos crear un registro para una variable unicamente asi:
+let x: Reg {
+    let a: Int
+    let b: Float
+    let c: Char = 's'
+    let d: Reg {
+        x: Int
+        y: Float = 1.8
+    } RegistroInterno
+} RegistroNuevo
+
+#O crear un registro general para crear variables de ese tipo de esta forma:
+Reg {
+    let a: Int
+    let b: Float
+    let c: Char = 's'
+    let d: Reg {
+        x: Int
+        y: Float = 1.8
+    } RegistroInterno
+} RegistroNuevo
+
+#Podemos crear una variable de ese tipo de luego asignar el contenido
+let x: RegistroNuevo
+x.a = 5
+x.b = 8.2
+print(x.c)
+# >> s
+
+#O asignarlo de una al inicializarla
+let y: RegistroNuevo = {
+    a = 1, b = 2.3, c = 'a', 
+    d = {x = 5, y = 9.4}
+}
+
+# Unions
+
+Union {
+    # Valores en comun
+    # let x: Int
+    # let y: Int
+
+    Tag Cuadrado = {
+        let x: Int
+        let y: Int
+        let lado: Int
+    }
+
+    Tag Circulo = {
+        let x: Int
+        let y: Int
+        let radio: Int
+    }
+} Forma
+
+Union {
+    Tag Rama = {
+        let hijo1: Arbol
+        let hijo2: Arbol
+    }
+    Tag Hoja
+    Tag OtraHojaPeroDiferente
+} Arbol
+
+let cuadradito: Forma = Cuadrado { x = 0, y = 0, lado = 10}
+
+match cuadradito {
+    case Cuadrado {
+        print(lado * lado)
+    }
+    case Circulo {
+        print(radio * radio * 3.14)
+    }
+}
+
+#Apuntadores
+
+let x: Pointer(String) = malloc()

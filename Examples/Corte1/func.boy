@@ -1,0 +1,17 @@
+let xy: Bool
+
+func nombre(xy: Int, y: Float):Void {
+  let xy: Int = 4
+  return "hola"
+}
+
+func nombre(z: Bool): Bool {
+  return z
+}
+
+func col(s: Int, s: Float):Void {
+  return
+}
+
+let nombre: Int
+nombre(5, 4, 6)

@@ -1,0 +1,15 @@
+Boy NuevoInt1 = Int
+Boy NuevoInt2 = Int
+
+let int1 : NuevoInt1 = 123
+let int2 : NuevoInt2 = 456
+
+int1 = int1 + int2
+
+Boy NuevoBool = Bool
+Boy NoBool = String
+
+let importanteError : NuevoBool = True
+let temporal : NoBool = "False"
+
+importanteError = temporal

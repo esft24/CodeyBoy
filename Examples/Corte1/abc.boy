@@ -1,0 +1,14 @@
+let x: Int = 10
+let z: Bool = True
+
+for i:Int from 1 to z by 2 {
+  z = !z
+  print(i)
+}
+
+for c:Char from 'a' to w by 2 {
+  z = !z
+  print(c)
+}
+
+let g: Int = 1

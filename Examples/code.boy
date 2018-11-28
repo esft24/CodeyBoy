@@ -1,0 +1,71 @@
+let x: Int
+let x: Float = 4.0
+let y: Char
+let x: Bool = True #comentario
+
+func nombre(xy: Int, y: Float):Void { #comentario
+  let xy: Int = 4
+  return "hola"
+}
+
+if True {
+  #comentarios
+  print(x)
+  #comentarios
+  let x: Int = 5 #comentarios
+  if False {
+    let x: Bool = False
+  } #Comentario
+}
+
+while True {
+  #comentarios # comentarios
+  let y: Char = 'c'
+  let nombre: Int
+  nombre(5, 4, 6)
+  Boy Edad = Int
+  Boy Queso = Bool
+}
+
+match variable {
+  #comentario
+  case Cuadrado {
+    print("holi")
+  }
+  case Circulo {
+    print("Chao")
+  }
+}
+
+let variable: Int
+
+Boy Edad = Int
+
+Boy Edad = Bool
+
+let f: Edad
+let g: Queso
+
+
+Boy NuevoReg = Reg {
+  #comentario
+  let x: Int
+  let y: Float
+  let z: Reg {
+    let z: Bool
+  } = { z = True }
+}
+
+Boy Forma = Union {
+  let x: Int
+  let y: Int
+  with
+
+  Tag Cuadrado = {
+    let lado: Int
+  }
+
+  Tag Circulo = {
+    let radio: Int
+  }
+}

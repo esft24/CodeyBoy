@@ -1,0 +1,10 @@
+Boy Record = Reg {
+    let x: Reg {
+        let y : Int
+    }
+}
+
+let z : Record
+
+z.x.y = 8
+let w: Int = z.x.y

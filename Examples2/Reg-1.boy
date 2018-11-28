@@ -1,0 +1,10 @@
+
+let x: Reg {
+  let x: Float = 4.3
+}
+print(x.x)
+
+let regBueno: Reg {
+  let str: String = "esta impresion no dara error"
+}
+print(regBueno.str)

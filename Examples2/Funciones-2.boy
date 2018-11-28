@@ -1,0 +1,9 @@
+func dameUnPointerBroder(): Pointer Int {
+  return malloc(Int)
+}
+
+func funcionConArreglox(arrayyyyyyy:Array <Int>): Int {
+  return arrayyyyyyy[9]
+} 
+
+let x: Pointer Int = dameUnPointerBroder()

@@ -1,0 +1,11 @@
+if True {
+  print(x)
+  let x: Int = 5
+  if False {
+    let x: Bool = False
+  }
+}
+
+while True {
+  let y: Char = 'c'
+}

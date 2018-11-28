@@ -1,0 +1,7 @@
+while True {
+  print("Hello friends")
+}
+
+while ((1+True) == ("dos" + False) ) {
+  print("Hello friends")
+}

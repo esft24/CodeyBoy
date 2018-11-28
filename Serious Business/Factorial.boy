@@ -1,0 +1,48 @@
+func toInt(str: String): Int {
+  return 42
+}
+
+func factorialIterativo(n: Int) : Int {
+  let producto: Int = 1
+  for j: Int from 1 to n+1 {
+    producto = j * producto
+  }
+  return producto    
+}
+
+func factorialRecursivoAux(n: Int, producto: Int): Int {
+  if (n == 1) {
+    return producto
+  }
+  return factorialRecursivoAux(n-1, producto*n)  
+}
+
+func factorialRecursivo(n: Int): Int {
+  return factorialRecursivoAux(n, 1)
+}
+
+let usuarioQuiereSeguir: Bool = True
+
+while usuarioQuiereSeguir {
+  print("Calculo de numero factorial!")
+  print("Indique su numero")
+  let n:Int = toInt(input())    
+  print("Recursivo (R) o Iterativo (I)")
+  let seleccion:String = input()
+
+  if (seleccion == "R") {
+    print(stringify(factorialRecursivo(n)))
+  } | (seleccion == "I"){
+    print(stringify(factorialIterativo(n)))
+  } | _ {
+    print("Seleccione una opcion valida")
+  }
+
+  print("Desea continuar? (S/N)")
+  seleccion = input()
+
+  if (seleccion == "N"){
+    usuarioQuiereSeguir = False
+  }
+
+}

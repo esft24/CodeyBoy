@@ -1,0 +1,7 @@
+let arr : Array<Int> (9)
+let c : Int
+
+arr[5] = 0
+arr[1+7] = 9
+arr[True] = 2
+# c[11] = 9

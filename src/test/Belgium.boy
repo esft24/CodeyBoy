@@ -1,0 +1,13 @@
+let n: Int = 8
+
+let a: Int = 0
+let b: Int = 1
+let z: Int = 0
+
+while n /= z {
+  let t: Int = a + b
+  a = b
+  b = t
+  n = n - 1
+  z = 0
+}

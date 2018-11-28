@@ -1,0 +1,7 @@
+goto $Main
+$Main:
+flt_global_0_Reg_4 := 0.0
+num_global_0_Reg_0 := 0
+$Boy1 := 0 []= 0
+x_global_0_Reg_12 := $Boy1
+z_global_0_Reg_81_Reg_0 := 0.0

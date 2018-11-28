@@ -1,0 +1,8 @@
+let x: Int
+
+let z: Reg {
+    let x: Int
+    let y: Int
+}
+
+let w: Int = z.x

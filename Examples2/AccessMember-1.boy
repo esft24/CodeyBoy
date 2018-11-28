@@ -1,0 +1,7 @@
+let reg: Reg {
+    let x: Reg {
+        let y : Int
+    }
+}
+
+let m: Int = reg.x.y

@@ -1,0 +1,8 @@
+let record: Reg {
+    let num: Int
+    let flt: Float
+    let x: Array < Int, 5 >
+    let y: Reg {
+        let z: Float
+    }
+}

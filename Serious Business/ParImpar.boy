@@ -1,0 +1,57 @@
+func par(n: Int) : Bool
+
+func impar(n: Int) : Bool {
+  if (n == 0) {
+    return False
+  } | (n == 1) {
+    return True
+  }
+
+  return par(n-1)
+}
+
+func par(n: Int) : Bool {
+  if (n == 0) {
+    return True
+  } | (n == 1) {
+    return False
+  }
+
+  return impar(n-1)
+}
+
+let usuarioQuiereSeguir: Bool = True
+
+while usuarioQuiereSeguir {
+  print("Par o impar!")
+  print("Indique su numero")
+  let n: Int = 1    
+  print("Par (P) o Impar (I)")
+  let seleccion:String = input()
+
+  let booleano : Bool = seleccion == "I"
+
+  if (seleccion == "P") {
+    if par(n) {
+      print("El numero es par!")
+    } | _ {
+      print("El numero no es par *sadBoy*")                                
+    }
+  }
+  
+  if (seleccion == "I") {
+    if impar(n) {
+      print("El numero es impar!")
+    } | _ {
+      print("El numero no es impar *sadBoy*")
+    }
+  }
+
+  print("Desea continuar? (S/N)")
+  seleccion = input()
+
+  if (seleccion == "N"){
+    usuarioQuiereSeguir = False
+  }
+
+}

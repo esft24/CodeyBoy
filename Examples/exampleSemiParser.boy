@@ -1,0 +1,18 @@
+let x: Int = 5454545
+let y: Bool = False
+
+if y {
+  let z: Float = 4.1
+} | False {
+  let x: Int = 1
+} | (46 == 52) {
+  if (52 /= 12) {
+    let x: Int = 2
+    if (False) {
+      let x: Int = 3
+    }
+  }
+} | y {
+  let c : Int
+}
+

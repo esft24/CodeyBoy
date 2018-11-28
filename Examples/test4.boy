@@ -1,0 +1,15 @@
+let a:Int = 5
+
+func f(x: Int) : Bool {
+    let z:Bool = f(6,6)
+    let y:Int = a
+    return True
+}
+
+func g(x:Int) : Bool {
+    f(True)
+    let retorno : Int = 5
+    return retorno
+}
+
+let afuera:Bool = f(5)

@@ -1,0 +1,50 @@
+
+
+let a: Int
+let b: Int = 4
+a = b
+let b: Int = 6 + 7
+
+let c: Bool = !True
+
+let d: Float = 0.0008
+
+let e: Char = 'a'
+
+let f: Array<Int,9> = [1,2,3,4,5,5,6,7,8,9]
+let g: Array<Bool,0> = []
+
+let h: Tipo = asdf
+
+let i: Reg {
+    let j: Tipo
+    let k: Reg {
+        let l: Tipo = asdf
+    }
+} = {j = 5, k = {l = 5}}
+
+let k: Union {
+    let l: Int
+    let m: Bool
+
+    with
+
+    Tag AAA  #Vacio
+    Tag BBB = {
+        let n: Int
+    }
+}
+
+Boy Variante = Union {
+    Tag CCC = {
+        let o: Int
+    }
+    Tag DDD = {
+        let p: Float
+    }
+}
+
+# Faltan
+let q: Variante = CCC {o = 8}
+q.o = 9
+Boy OtroInt = Int

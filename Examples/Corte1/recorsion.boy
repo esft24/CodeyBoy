@@ -1,0 +1,13 @@
+
+func nombre(z: Bool): Bool {
+  apellido(z)
+  return z
+}
+
+func apellido(z: Bool): Bool {
+  nombre(z)
+  nasdfasd()
+  return z
+}
+
+nombr(True)

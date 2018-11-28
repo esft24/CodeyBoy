@@ -1,0 +1,26 @@
+# let a: Bool
+#
+# if (a) {
+#   let b: Int
+#   b = 1
+# } | (a) {
+#   let b: Int
+#   b = 2
+# } | _ {
+#   let b: Int
+#   b = 3
+# }
+#
+# if ((1+True) == ("dos" + False) ) {
+#   let x: Int
+# }
+
+###################################################################
+
+# while True {
+#   print("Hello friends")
+# }
+#
+# while ((1+True) == ("dos" + False) ) {
+#   print("Hello friends")
+# }

@@ -1,0 +1,14 @@
+print("hola hola perinola")
+
+let str: String = "ya no quiero hablar contigo"
+print(str)
+
+print(False)
+
+print(42452)
+
+let numerito: Float = 24124.231
+print(numerito)
+
+print(stringify(1+1))
+print(stringify(1+True))

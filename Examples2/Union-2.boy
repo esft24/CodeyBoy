@@ -1,0 +1,26 @@
+Boy Union1 = Union {
+  let x: Int
+  with
+  Tag A = {
+    let y: Int
+  }
+}
+
+Boy Union2 = Union {
+  let x: Int
+  with
+  Tag A = {
+    let y: Int
+  }
+}
+
+let un1: Union1
+let un2: Union2
+
+let arrayun: Array<Union {
+  let x: Int
+  with
+  Tag A = {
+    let y: Int
+  }
+}, 2> = [un1, un2]

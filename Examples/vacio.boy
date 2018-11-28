@@ -1,0 +1,30 @@
+###########################################################
+
+Boy Cool = Union {
+    Tag Uno = {
+        let n: Int
+        let m: Int
+    }
+
+    Tag ATres
+
+    Tag Dos ={
+        let y: Union {
+            let g: Int
+            with
+            Tag Cool = {
+                let f: Float
+            }
+            Tag Sweet = {
+                let h: Int
+            }
+        }
+    }
+}
+
+let c: Cool = Tres {}
+c = Uno {n = 5}
+c = Dos {}
+c.y = Cool {f = 1.9}
+c.y.f = 5.8
+c.y.g = 1 # malo

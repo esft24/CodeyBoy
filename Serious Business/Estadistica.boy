@@ -1,0 +1,97 @@
+def sqrt(f:Float):Float{
+    let potencia: Int
+    let numerito: Int = 1
+
+    while (numerito * 2) <= f {
+        potencia = potencia + 1
+        numerito = numerito * 2
+    }
+
+    let x0 : Float = power(2, (potencia / 2))
+    let x1 : Float = 0.5 * (x0 + (f / x0))
+
+    while x0 - x1 < 0.01 {
+        t = x0
+        x0 = x1
+        x1 = 0.5 * (t + (f / t))
+    }
+
+    return x1
+}
+
+def power(base: Float, potencia: Float) {
+    resultado = 1
+    for i: Int from 1 to potencia {
+        resultado = base * resultado 
+    }
+    return resultado
+}
+
+def media(muestras: Pointer Array <Float>): Float {
+    let suma : Float
+    let tamano : Int
+    for i : Float in *muestras {
+        suma = suma + i
+        tamano = tamano + 1
+    }
+    return (suma/tamano)
+}
+
+def varianza(muestras: Pointer Array <Float>): Float {
+    let mean : Float = media(muestras)
+    let suma : Float
+    let tamano : Float
+    for i : Float in *muestras {
+        suma = suma + ((i - mean)  * (i - mean))
+        tamano = tamano + 1
+    }
+
+    return (suma/tamano)
+    
+}
+
+def minimo(muestras: Pointer Array <Float>): Float {
+    let min: Float = *muestras[0]
+    for i : Float in *muestras {
+        if i < min{
+            min = i
+        }
+    }
+    return min
+}
+
+def maximo(muestras: Pointer Array <Float>): Float {
+    let max: Float = *muestras[0]
+    for i : Float in *muestras {
+        if i > max{
+            max = i
+        }
+    }
+    return max
+}
+
+ h := 1 /* Initialization of the pivot row */
+ k := 1 /* Initialization of the pivot column */
+ while h ≤ m and k ≤ n
+   /* Find the k-th pivot: */
+   i_max := argmax (i = h ... m, abs(A[i, k]))
+   if A[i_max, k] = 0
+     /* No pivot in this column, pass to next column */
+     k := k+1
+   else
+      swap rows(h, i_max)
+      /* Do for all rows below pivot: */
+      for i = h + 1 ... m:
+         f := A[i, k] / A[h, k]
+         /* Fill with zeros the lower part of pivot column: */
+         A[i, k]  := 0
+         /* Do for all remaining elements in current row: */
+         for j = k + 1 ... n:
+            A[i, j] := A[i, j] - A[h, j] * f
+      /* Increase pivot row and column */
+      h := h+1 
+      k := k+1
+
+def desviacionEstandar(muestras: Pointer Array <Float>): Float {
+    return sqrt(varianza(muestras))        
+}

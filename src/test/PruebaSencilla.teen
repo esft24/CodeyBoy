@@ -1,0 +1,18 @@
+goto $Main
+$Main:
+x_global_0 := 1
+y_global_4 := 2
+b_global_8 := False
+v_global_12 := True
+z_global_16 := 0
+w_global_20 := False
+$Boy1 := x_global_0 * y_global_4
+z_global_16 := $Boy1
+$Boy2 := x_global_0 * 0
+z_global_16 := $Boy2
+$Boy3 := x_global_0 * 1
+z_global_16 := $Boy3
+$Boy4 := x_global_0 * 3
+z_global_16 := $Boy4
+$Boy5 := 5 * 4
+z_global_16 := $Boy5

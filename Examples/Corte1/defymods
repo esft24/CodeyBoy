@@ -1,0 +1,10 @@
+let x: Int
+
+if True {
+  x = x + 1
+  let x: Int
+  let y : Bool = False
+  x = 7
+}
+
+let y: Char = 9

@@ -1,0 +1,10 @@
+let binariaNumber : Int = 1 + (2 + 3) + 4
+let unariaNumber : Int = -binariaNumber + 5
+
+if (1 < 2) {
+  binariaNumber = 4 + 3
+} | (2 < 3) {
+  unariaNumber = -unariaNumber  
+} | (3 < 6) {
+  unariaNumber = 1
+}

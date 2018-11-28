@@ -1,0 +1,106 @@
+goto $Main
+impar:
+$Boy1 := n_impar_0 == 0
+if $Boy1 goto $Label1
+$Boy2 := n_impar_0 == 1
+if $Boy2 goto $Label2
+goto $Label3
+$Label1:
+return False
+goto $Label3
+$Label2:
+return True
+$Label3:
+$Boy3 := n_impar_0 - 1
+push $Boy3
+$Boy4 := call par 1
+pop $Boy3
+return $Boy4
+par:
+$Boy5 := n_par_0 == 0
+if $Boy5 goto $Label4
+$Boy6 := n_par_0 == 1
+if $Boy6 goto $Label5
+goto $Label6
+$Label4:
+return True
+goto $Label6
+$Label5:
+return False
+$Label6:
+$Boy7 := n_par_0 - 1
+push $Boy7
+$Boy8 := call impar 1
+pop $Boy7
+return $Boy8
+$Main:
+usuarioQuiereSeguir_global_0 := True
+$Label7:
+ifnot usuarioQuiereSeguir_global_0 goto $Label8
+push "Par o impar!"
+print()
+pop "Par o impar!"
+push "Indique su numero"
+print()
+pop "Indique su numero"
+n_global_4 := 1
+push "Par (P) o Impar (I)"
+print()
+pop "Par (P) o Impar (I)"
+$Boy9 := input()
+seleccion_global_8 := $Boy9
+$Boy10 := seleccion_global_8 == "I"
+booleano_global_12 := $Boy10
+$Boy11 := seleccion_global_8 == "P"
+if $Boy11 goto $Label9
+goto $Label10
+$Label9:
+push n_global_4
+$Boy12 := call par 1
+pop n_global_4
+if $Boy12 goto $Label11
+goto $Label12
+$Label11:
+push "El numero es par!"
+print()
+pop "El numero es par!"
+goto $Label13
+$Label12:
+push "El numero no es par *sadBoy*"
+print()
+pop "El numero no es par *sadBoy*"
+$Label13:
+$Label10:
+$Boy13 := seleccion_global_8 == "I"
+if $Boy13 goto $Label14
+goto $Label15
+$Label14:
+push n_global_4
+$Boy14 := call impar 1
+pop n_global_4
+if $Boy14 goto $Label16
+goto $Label17
+$Label16:
+push "El numero es impar!"
+print()
+pop "El numero es impar!"
+goto $Label18
+$Label17:
+push "El numero no es impar *sadBoy*"
+print()
+pop "El numero no es impar *sadBoy*"
+$Label18:
+$Label15:
+push "Desea continuar? (S/N)"
+print()
+pop "Desea continuar? (S/N)"
+$Boy15 := input()
+seleccion_global_8 := $Boy15
+$Boy16 := seleccion_global_8 == "N"
+if $Boy16 goto $Label19
+goto $Label20
+$Label19:
+usuarioQuiereSeguir_global_0 := False
+$Label20:
+goto $Label7
+$Label8:

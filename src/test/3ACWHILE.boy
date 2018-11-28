@@ -1,0 +1,6 @@
+let i : Int = 0
+let j : Int = 9
+while i < 10 {
+  i = i + 1
+  j = j + 2
+}

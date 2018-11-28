@@ -1,0 +1,8 @@
+let a : Bool
+let b : Bool
+let c : Bool
+
+let char1 : Char = 'a'
+let char2 : Char = 'b'
+
+c = ((a || (char1 < char2)) && (c && a)) || b

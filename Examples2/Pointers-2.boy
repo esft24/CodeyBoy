@@ -1,0 +1,9 @@
+func pointyBoy(x : Pointer Int): Pointer Array<Array<Float, 100>,100> {
+    return malloc(Array<Array<Float, 100>,100>)
+}
+
+func pointyBooy(): Pointer Array<Array<Float, 100>,100> {
+    return malloc(Int)
+}
+
+let x: Pointer Array<Array<Float,100>,100> = pointyBoy() 

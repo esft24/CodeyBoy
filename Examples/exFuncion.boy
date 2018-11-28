@@ -1,0 +1,77 @@
+
+
+func sinPar(): Void {
+    return
+}
+
+func mas_casi_1000(x: Int): Float{
+    return x + 999.9
+}
+
+func conInstruccionesCool(y: Bool, $z: Int, c: Char): Bool {
+    Boy V = Union {
+        Tag LOL = {
+            let y: Int = 1
+        }
+
+        Tag OMEGALOL = {
+            let z: Int = 2
+        }
+    }
+
+    let t: V = LOL {z = 1}
+
+    let a: Int = 90
+
+    while !y {
+        a = a + 1000
+    }
+
+    for i:Int from 6 to 8 by 1 {
+        a = a - 9
+    }
+
+    for z:Char from 'a' to 'z' {
+        a = a + 9
+    }
+
+    match t {
+        case LOL {
+            return False
+        }
+        case OMEGALOL {
+            return True
+        }
+    }
+
+    print(a)
+    free(a)
+
+    if y || True {
+        return z
+    } | y && False {
+        return !z
+    } | _ {
+        return z
+    }
+
+    return a
+}
+
+if y || True {
+    z = a
+    y = r
+} | y && False {
+    z = b
+} | _ {
+    z = c
+}
+
+for arrrg: Int in [1,2,3,4,5,6] {
+    break
+    a = a + 0
+}
+
+for arrrg: Int in cool {
+    a = a + 0
+}

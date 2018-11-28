@@ -1,0 +1,87 @@
+Boy UnionPrueba = Union {
+  let comun: Int
+  with
+
+  Tag Primer = {
+    let x: Bool
+    let y: Char
+    let z: String
+  }
+
+  Tag Segundo = {
+    let x: Int
+    let y: Float
+  }
+
+  Tag Tercero
+}
+
+let union: UnionPrueba
+
+match union {
+  case Primer {
+    union.z = "aaaaaaaaaa" # ya va, pero este es el caso Primer, tiene que servir el .z, yo se, pero el programador no sabe pues, deberiamos verificar todos, creeeeo que es facil
+  }
+
+  case Segundo {
+    let z: Pointer Bool = malloc(Bool)
+  }
+
+  case default {
+    print("default")
+  }  
+}
+
+let z: Bool = True
+let y: Float = 5.0
+
+if z {
+  y = 7.0
+}
+
+while z {
+  y = 9.6
+}
+
+if True{
+    for x:Float from 2.5 to 6.5 {
+        y = 6.0
+    } 
+}
+
+let ochoa: Int = 9
+
+let pruebaUnion: Union {
+  let x: Int
+  let y: Float
+  with
+
+  Tag Changuito ={
+    let z: Bool
+  }
+
+  Tag DonkeyKong ={
+    let diddy: Char
+  }
+} = Changuito { x = ochoa, y = 3.2, z = False }
+
+# vale, pero el problema no es el bloque sino el if igual, no? ok
+
+Boy A = Reg {
+  let x: Int
+}
+let r: A = {x = 7}
+
+if True {
+  let ochoa: A = {x = 8}
+}
+
+let sabado: Float
+
+func sweet(): Void {
+  let ochoa: Int
+  if False {
+    ochoa = 15
+    let sabado: Float = 8.9
+  }
+}

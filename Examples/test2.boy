@@ -1,0 +1,200 @@
+# print("hola hola perinola")
+#
+# let str: String = "ya no quiero hablar contigo"
+# print(str)
+#
+# print(False)
+#
+# print(42452)
+#
+# let numerito: Float = 24124.231
+# print(numerito)
+
+#############################################################
+#
+# let x: Reg {
+#   let x: Float = 4.3
+# }
+# print(x.x)
+#
+# let regBueno: Reg {
+#   let str: String = "esta impresion no dara error"
+# }
+# print(regBueno.str)
+
+#############################################################
+
+# let y: Pointer Int = malloc(Int)
+# free(y)
+#
+# let noDeberia: Float = 4.3
+# free(noDeberia)
+#
+# let wat: Bool = malloc(Bool)
+#
+# let bicho: Pointer Array<String, 2> = malloc(Array<String, 2>)
+# print(*bicho[1])
+#
+# *bicho[2] = 4.2
+
+#############################################################
+
+# let a: Reg {
+#   let b: Pointer Reg {
+#     let c: Pointer Reg {
+#       let d: Reg {
+#         let e: Int
+#       }
+#     }
+#   }
+# }
+#
+# print(*(*(a.b).c).d.e)
+#
+# let f: Reg {
+#   let b: Array<Reg{
+#           let c: Pointer Reg {
+#             let d: String
+#           }
+#          }, 1>
+# }
+#
+# print(*(f.b[0].c).d)
+
+#############################################################
+
+# let a: Union {
+#   let b: Pointer Reg {
+#     let c: Pointer Reg {
+#       let d: Reg {
+#         let e: String
+#       }
+#     }
+#   }
+#   with
+#   Tag Invisible = {
+#     let i: Int
+#   }
+#
+#   Tag A
+#
+#   Tag Z
+#
+#   Tag NoImportante = {
+#     let f: Reg {
+#       let g: Pointer Reg {
+#         let h: Bool
+#       }
+#     }
+#   }
+# }
+#
+# print(*(*(a.b).c).d.e)
+# print(*(a.f.g).h)
+# print(a.i)
+
+################################################################################
+
+# Boy Union1 = Union {
+#   let x: Int
+#   with
+#   Tag A = {
+#     let y: Int
+#   }
+# }
+#
+# Boy Union2 = Union {
+#   let x: Int
+#   with
+#   Tag A = {
+#     let y: Int
+#   }
+# }
+#
+# let un1: Union1
+# let un2: Union2
+#
+# let arrayun: Array<Union {
+#   let x: Int
+#   with
+#   Tag A = {
+#     let y: Int
+#   }
+# }, 2> = [un1, un2]
+
+################################################################################
+
+# Boy ReggieFilsAime = Reg {
+#   let x: Int
+#   let y: Bool
+#   let z: Bool
+# }
+#
+# Boy Reggae = Reg {
+#   let z: Bool
+#   let x: Int
+#   let y: Bool
+# }
+#
+# let re1: ReggieFilsAime
+# let re2: Reggae
+#
+# let arrayre: Array<Reg {
+#   let y: Bool
+#   let z: Bool
+#   let x: Int
+# }, 2>
+#
+# arrayre = [re1, re2]
+
+################################################################################
+
+# Boy UnionTest = Union {
+#   let x: Int
+#   let y: Bool
+#   with
+#
+#   Tag Boingo = {
+#     let z: Bool
+#     let a: Union {
+#       let b: Int
+#       with
+#
+#       Tag Bingo = {
+#         let c: String = "Bonus stage"
+#       }
+#
+#       Tag Bango = {
+#         let k: Float
+#       }
+#     }
+#   }
+#   Tag Nothing
+# }
+#
+# Boy UnionTestsito = Union {
+#   let y: Bool
+#   let x: Int
+#   with
+#   Tag Nothing
+#
+#   Tag Boingo = {
+#     let a: Union {
+#       let b: Int
+#       with
+#       Tag Bango = {
+#         let k: Float
+#       }
+#
+#       Tag Bingo = {
+#         let c: String = "Bonus stage"
+#       }
+#     }
+#     let z: Bool
+#   }
+# }
+#
+# let x: UnionTest
+# let y: UnionTestsito
+#
+# let z: Array<UnionTest, 1+1> = [x,y]

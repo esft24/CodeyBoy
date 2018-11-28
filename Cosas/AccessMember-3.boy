@@ -1,0 +1,29 @@
+let a: Union {
+  let b: Pointer Reg {
+    let c: Pointer Reg {
+      let d: Reg {
+        let e: String
+      }
+    }
+  }
+  with
+  Tag Invisible = {
+    let i: Int
+  }
+
+  Tag A
+
+  Tag Z
+
+  Tag NoImportante = {
+    let f: Reg {
+      let g: Pointer Reg {
+        let h: Bool
+      }
+    }
+  }
+} = NoImportante{}
+
+#print(*(*(a.b).c).d.e)
+#print(*(a.f.g).h)
+print(a.i)

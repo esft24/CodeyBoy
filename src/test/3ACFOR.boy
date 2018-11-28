@@ -1,0 +1,6 @@
+let k : Int
+let l : Int
+for i : Char from 'a' to 'z' {
+    k = k + 1
+    l = l + 2
+}

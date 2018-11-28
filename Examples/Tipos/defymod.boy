@@ -1,0 +1,37 @@
+let x: Int
+let y: Int = x
+y = 1 + 2
+
+let z: Bool = x
+let w: Int = True
+
+let a: Char = 4
+let b: Int = 4.2
+let c: String = 'g'
+
+
+#################################################
+
+let d: Int
+let e: Float
+let g: Bool
+
+# d = 1 - True
+# d = 4.5 * 7
+# d = d / 2
+# d = d // 7
+# d = {x = 5}
+
+# e = 1 - True
+# e = 4.5 * 7
+# e = e / 2
+# e = e // 7
+# e = {x = 5}
+#
+# g = 5 < 8
+# g = 6 > 9.8
+# g = True && False
+# g = False || 's'
+# g = d == True
+# g = d /= 3
+# g = not g

@@ -1,0 +1,18 @@
+Boy ChurroMania = String
+
+Boy UnionCity = Union {
+  let x: ChurroMania
+  with
+
+  Tag PizzaHut ={
+    let pepperoni: Int
+  }
+
+  Tag Residencias
+}
+
+let visitante: UnionCity = PizzaHut { x = "sabroso", pepperoni = 2 }
+
+let pruebaAlias : String  = visitante.x
+
+visitante = Residencias {}

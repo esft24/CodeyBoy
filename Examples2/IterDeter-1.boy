@@ -1,0 +1,13 @@
+for x:Int from 2 to 40 {
+break
+}
+
+let z: Bool = False
+
+for x:Float from 2 to z {
+ break
+}
+
+for x:Float from 2.1 to 40 by 0.1 {
+ break
+}

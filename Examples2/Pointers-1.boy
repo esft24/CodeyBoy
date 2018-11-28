@@ -1,0 +1,12 @@
+let y: Pointer Int = malloc(Int)
+free(y)
+
+let noDeberia: Float = 4.3
+free(noDeberia)
+
+let wat: Bool = malloc(Bool)
+
+let bicho: Pointer Array<String, 2> = malloc(Array<String, 2>)
+print(*bicho[1])
+
+*bicho[2] = 4.2

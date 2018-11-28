@@ -1,0 +1,133 @@
+# let x: Int = 1 + 2 + 1 + True
+# let y: Int = 1 + x
+# let w: Array<Float,0> = []
+
+###########################################################
+
+# for x:Int from 2 to 40 {
+# break
+# }
+#
+# for x:Float from 2 to 40 {
+#  break
+# }
+#
+# for x:Float from 2.1 to 40 by 0.1 {
+#  break
+# }
+
+###########################################################
+
+# for x:Char from 'c' to 'b' {
+#  break
+# }
+#
+# for x:Int from 2.9 to 40 {
+#  break
+# }
+#
+# for x:String from 2 to 40 by 5 {
+#  break
+# }
+
+###########################################################
+
+# func ggg(x: Int, y:Bool): Bool {
+#   return True
+# }
+#
+# let z: Bool = ggg(False, 1)
+# let w: Bool = ggg(1, False)
+#
+# ggg(True, 5)
+# ggg(42, False)
+#
+# func rec(x: Int): Void {
+#   abajo(5, True)
+# }
+#
+# func abajo(x: Bool, y: Int): Void {
+#   return
+# }
+
+###########################################################
+
+# let x: Union {
+#     let i: Float
+#     with
+#     Tag Uno = {
+#         let f: Int
+#     }
+#     Tag Dos = {
+#         let c: Bool
+#     }
+#     Tag Tres = {
+#         let b: Char
+#     }
+# }
+#
+#
+# let reg: Reg {
+#     let x: Reg {
+#         let y : Int
+#     }
+# }
+#
+# let m: Int = reg.x.y
+
+###########################################################
+
+# let pruebaUnion: Union {
+#   let x: Int
+#   let y: Float
+#   with
+#
+#   Tag Changuito ={
+#     let z: Bool
+#   }
+#
+#   Tag DonkeyKong ={
+#     let diddy: Char
+#   }
+# } = Changuito { x = 5, y = 3.2, z = False }
+#
+# let pruebaUnion2: Union {
+#   let x: Int
+#   let y: Float
+#   with
+#
+#   Tag Changuito ={
+#     let z: Bool
+#   }
+#
+#   Tag DonkeyKong ={
+#     let diddy: Char
+#   }
+# } = Changote { x = 5, y = 3.2, z = False }
+#
+# pruebaUnion = DonkeyKong {diddy = 4}
+
+###########################################################
+
+# Boy ChurroMania = String
+#
+# Boy UnionCity = Union {
+#   let x: ChurroMania
+#   with
+#
+#   Tag PizzaHut ={
+#     let pepperoni: Int
+#   }
+#
+#   Tag Residencias
+# }
+#
+# let visitante: UnionCity = PizzaHut { x = "sabroso", pepperoni = 2 }
+#
+# let pruebaAccessMemberLadoDerechoParaVerSiHaceBienLasVerificaciones : String  = visitante.x
+#
+# visitante = Residencias {}
+#
+# let arreglito: Array<Int, 5> = [1, 2, 3, 4, 5]
+#
+# let numerito: Int = visitante[1]

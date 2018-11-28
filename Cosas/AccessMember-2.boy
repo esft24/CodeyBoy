@@ -1,0 +1,21 @@
+# let a: Reg {
+#   let b: Pointer Reg {
+#     let c: Pointer Reg {
+#       let d: Reg {
+#         let e: Int
+#       }
+#     }
+#   }
+# }
+
+# print(*(*(a.b).c).d.e)
+
+let f: Reg {
+  let b: Array<Reg{
+          let c: Pointer Reg {
+            let d: String
+          }
+         }, 1>
+}
+
+print(*(f.b[0].c).d[1])

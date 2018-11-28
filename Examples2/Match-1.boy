@@ -1,0 +1,85 @@
+Boy UnionPrueba = Union {
+  let comun: String
+  with
+
+  Tag Primer = {
+    let x: Bool
+    let y: Char
+    let z: String
+  }
+
+  Tag Segundo = {
+    let x: Int
+    let y: Float
+    let noEsta: Int
+  }
+
+  Tag Tercero
+}
+
+let union : UnionPrueba = Primer { comun = "sdkjaosd", x = True, y = 'a', z = "Prueba" }
+# let pruebasuma : Int = union.comun + 1
+
+
+match union {
+  case Primer {
+    print("hello") 
+  }
+
+  case Segundo {
+    let z: Pointer Bool = malloc(Bool)
+    let x: Int = union.noEsta
+  }
+
+  case Tercero {
+    let z: Pointer Bool = malloc(Bool)
+    let x: Int = union.noEsta
+  }
+
+}
+
+
+func f(x: Int) : Bool {
+  Boy UnionPrueba2 = Union {
+    let comun: String
+    with
+
+    Tag Primer = {
+      let x: Bool
+      let y: Char
+      let z: String
+    }
+
+    Tag Segundo = {
+      let x: Int
+      let y: Float
+      let noEsta: Int
+    }
+
+    Tag Tercero
+  }
+  
+  match union {
+    case Primer {
+      print("hello") 
+    }
+
+    case Segundo {
+      let z: Pointer Bool = malloc(Bool)
+      let x: Int = union.noEsta
+    }
+
+    case Tercero {
+      let z: Pointer Bool = malloc(Bool)
+      let x: Int = union.noEsta
+
+      if x > 9 {
+        let w: Int = x
+      }
+    }
+  }
+
+  let w: Int = y
+
+  return True
+}

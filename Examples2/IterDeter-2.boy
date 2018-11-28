@@ -1,0 +1,8 @@
+for x:Char from 'c' to 'b' {
+ break
+}
+
+for x:Float from 2.9 to 40 {
+ break
+}
+

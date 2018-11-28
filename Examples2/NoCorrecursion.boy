@@ -1,0 +1,17 @@
+func ggg(x: Int, y:Bool): Bool {
+  return True
+}
+
+let z: Bool = ggg(False, 1)
+let w: Bool = ggg(1, False)
+
+ggg(True, 5)
+ggg(42, False)
+
+func rec(x: Int): Void {
+  abajo(5, True)
+}
+
+func abajo(x: Bool, y: Int): Void {
+  return
+}

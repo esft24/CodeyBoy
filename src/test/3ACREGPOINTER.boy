@@ -1,0 +1,9 @@
+Boy Tipo = Reg {
+    let x: Int
+}
+let y: Pointer Pointer Tipo  = malloc(Pointer Tipo)
+*y = malloc(Tipo)
+
+let z : Pointer Tipo = *y
+
+*z.x = 9

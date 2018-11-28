@@ -1,0 +1,90 @@
+Boy Perol = Union {
+    Tag Rojo
+    Tag Blanco
+    Tag Azul
+}
+
+let arregloGlobal: Array < Union, 1 >
+
+func swap($a: Int, $b: Int): Void {
+    let t: Int = a
+    a = b
+    b = t
+}
+
+func banderaHolandesa(n: Int, m: Int): Void {
+    let i: Int
+    let j: Int
+    let v: Int
+    let x: Int
+
+    if n <= m {
+        return
+    }
+
+    i = m - 1
+    j = n
+
+    match arregloGlobal[n] {
+        case Rojo {
+            v = 1
+        }
+        case Blanco {
+            v = 2
+        }
+        case Azul {
+            v = 3
+        }
+    }
+
+    while True {
+        i = i + 1
+
+        let ic: Int
+
+        match arregloGlobal[i] {
+            case Rojo {
+                ic = 1
+            }
+            case Blanco {
+                ic = 2
+            }
+            case Azul {
+                ic = 3
+            }
+        }
+
+        while ic < v {
+            i = i + 1
+        }
+
+        j = j - 1
+
+        let jc: Int
+
+        match arregloGlobal[j] {
+            case Rojo {
+                jc = 1
+            }
+            case Blanco {
+                jc = 2
+            }
+            case Azul {
+                jc = 3
+            }
+        }
+
+        while jc > v {
+            j = j - 1
+        }
+        if i >= j {
+            break
+        }
+        swap(a[i], a[j])
+    }
+
+    swap(a[i], a[n])
+    banderaHolandesa(m, j)
+    banderaHolandesa(i+1, n)
+}
+

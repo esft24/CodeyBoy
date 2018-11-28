@@ -1,0 +1,22 @@
+Boy ReggieFilsAime = Reg {
+  let x: Int
+  let y: Bool
+  let z: Bool
+}
+
+Boy Reggae = Reg {
+  let z: Bool
+  let x: Int
+  let y: Bool
+}
+
+let re1: ReggieFilsAime
+let re2: Reggae
+
+let arrayre: Array<Reg {
+  let y: Bool
+  let z: Bool
+  let x: Int
+}, 2>
+
+arrayre = [re1, re2]

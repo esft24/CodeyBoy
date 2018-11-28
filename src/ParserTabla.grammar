@@ -1,0 +1,376 @@
+%left or
+%left and
+%nonassoc eq uneq gt goet loet lt
+%right not
+%left plus minus
+%left mult div mod wdiv
+%right uminus deref
+%left point
+%nonassoc then
+%nonassoc else
+
+START
+  : {- empty -}
+  | Nl PROGRAMA
+  | PROGRAMA
+
+PROGRAMA
+  : IMPORTS Nl INSTRUCCIONES
+  | INSTRUCCIONES
+  | IMPORTS
+
+IMPORTS
+  : IMPORTS Nl IMPORT
+  | IMPORT
+
+IMPORT
+  : bring all "the boys" from string
+  | bring all "the boys" from string but open LISTAIDENT close
+  | bring all "the boys" from string aka TypeName
+  | bring all "the boys" from string but open LISTAIDENT close aka TypeName
+  | bring "the boys" from string who open LISTAIDENT close
+  | bring "the boys" from string who open LISTAIDENT close aka TypeName
+
+LISTAIDENT
+  : identifier
+  | LISTAIDENT comma identifier
+
+INSTRUCCIONES
+  : INSTRUCCIONES Nl INSTRUCCION
+  | INSTRUCCION
+
+INSTRUCCION
+  : DEFVARIABLE
+  | MODVARIABLE
+  | DEFDETIPO
+  | DEFFUNC
+  | SELECCIONIF
+  | SELECCIONMATCH
+  | REPETICIONDET
+  | REPETICIONINDET
+  | LLAMADA
+  | print open EXPRESION close
+  | free open EXPRESION close
+
+NUEVOBLOQUE
+  : begin
+
+TYPE
+  : Int
+  | Bool
+  | Char
+  | Float
+  | Array lt TYPE comma EXPRESION gt
+  | String
+  | Pointer TYPE
+  | TypeName
+  | Void
+  | Reg NUEVOBLOQUE LISTADEF Nl end
+  | Union NUEVOBLOQUE LISTADEF Nl with Nl LISTATAG Nl end
+  | Union begin LISTATAG Nl end
+
+DEFVARIABLE
+  : let identifier colon TYPE equal EXPRESION
+  | let identifier colon TYPE
+  | let identifier colon TYPE equal BLOCKDEF
+  | let identifier colon TYPE equal UNIONBLOCKDEF
+
+BLOCKDEF
+  : begin LISTASIG end
+
+UNIONBLOCKDEF
+  : TypeName begin end
+  | TypeName begin LISTASIG end
+
+LISTASIG
+  : identifier equal EXPRESION
+  | LISTASIG comma identifier equal EXPRESION
+
+LVALUE
+  : identifier
+  | identifier ACCESSARRAY
+  | LVALUE point LVALUE2
+  | mult LVALUE %prec deref
+  | mult open LVALUE point LVALUE2 close
+
+LVALUE2
+  : identifier
+  | identifier ACCESSARRAY
+  | LVALUE2 point LVALUE2
+
+ACCESSARRAY
+  : ACCESSARRAY openSq EXPRESION closeSq
+  | openSq EXPRESION closeSq
+
+MODVARIABLE
+  : LVALUE equal EXPRESION
+  | LVALUE equal BLOCKDEF
+  | LVALUE equal UNIONBLOCKDEF
+
+DEFDETIPO
+  : Boy TypeName equal TYPE
+
+LISTADEF
+  : LISTADEF Nl DEFVARIABLE
+  | DEFVARIABLE
+
+LISTATAG
+  : Tag TypeName
+  | LISTATAG Nl Tag TypeName
+  | LISTATAG Nl Tag TypeName equal NUEVOBLOQUE LISTADEFT Nl end
+  | Tag TypeName equal NUEVOBLOQUE LISTADEFT Nl end
+
+LISTADEFT
+  : LISTADEFT Nl DEFVARIABLEU
+  | DEFVARIABLEU
+
+DEFVARIABLEU
+  : let identifier colon TYPE equal EXPRESION
+  | let identifier colon TYPE
+  | let identifier colon TYPE equal BLOCKDEF
+  | let identifier colon TYPE equal UNIONBLOCKDEF
+
+DEFFUNC
+  : func FUNCNAMEP NUEVOBLOQUE INSTSFUNCP Nl end
+  | func FUNCNAME NUEVOBLOQUE INSTSFUNCP Nl end
+  | func FUNCNAMEND
+  | func FUNCNAMEPND
+
+FUNCNAME
+  : NOMBREFUNCION open close colon SIMPLETYPE
+
+FUNCNAMEP
+  : NOMBREFUNCION open PARAMLIST close colon SIMPLETYPE
+
+FUNCNAMEND
+  : NOMBREFUNCION open close colon SIMPLETYPE
+
+FUNCNAMEPND
+  : NOMBREFUNCION open PARAMLIST close colon SIMPLETYPE
+
+NOMBREFUNCION
+  : identifier
+
+SIMPLETYPE
+  : Int
+  | Bool
+  | Char
+  | Float
+  | Pointer TYPE
+  | Void
+
+PARAMLIST
+  : identifier colon TYPE
+  | PARAMLIST comma identifier colon TYPE
+  | dollar identifier colon TYPE
+  | PARAMLIST comma dollar identifier colon TYPE
+
+INSTSFUNC
+  : INSTSFUNC Nl INSTRUCCIONF
+  | INSTRUCCIONF
+
+INSTRUCCIONF
+  : return
+  | return EXPRESION
+  | SELECCIONIFF
+  | SELECCIONMATCHF
+  | REPETICIONDETF
+  | REPETICIONINDETF
+  | DEFVARIABLE
+  | MODVARIABLE
+  | DEFDETIPO
+  | LLAMADA
+  | print open EXPRESION close
+  | free open EXPRESION close
+
+INSTSFUNCP
+  : INSTSFUNCP Nl INSTRUCCIONFP
+  | INSTRUCCIONFP
+
+INSTRUCCIONFP
+  : return
+  | return EXPRESION
+  | SELECCIONIFF
+  | SELECCIONMATCHF
+  | REPETICIONDETF
+  | REPETICIONINDETF
+  | DEFVARIABLEP
+  | MODVARIABLE
+  | DEFDETIPO
+  | LLAMADA
+  | print open EXPRESION close
+  | free open EXPRESION close
+
+DEFVARIABLEP
+  : let identifier colon TYPE equal EXPRESION
+  | let identifier colon TYPE
+  | let identifier colon TYPE equal BLOCKDEF
+  | let identifier colon TYPE equal UNIONBLOCKDEF
+
+INSTSFUNCL
+  : INSTSFUNCL Nl INSTRUCCIONFL
+  | INSTRUCCIONFL
+
+INSTRUCCIONFL
+  : return
+  | return EXPRESION
+  | SELECCIONIFF
+  | SELECCIONMATCHF
+  | REPETICIONDETF
+  | REPETICIONINDETF
+  | DEFVARIABLE
+  | MODVARIABLE
+  | DEFDETIPO
+  | LLAMADA
+  | break
+  | print open EXPRESION close
+  | free open EXPRESION close
+
+SELECCIONIF
+  : if EXPRESION NUEVOBLOQUE INSTRUCCIONESC Nl end %prec then
+  | IF LISTAELSE
+
+IF
+  : if EXPRESION NUEVOBLOQUE INSTRUCCIONESC Nl end
+
+LISTAELSE
+  : LISTAELSE else EXPRESION NUEVOBLOQUE INSTRUCCIONESC Nl end
+  | else otherwise NUEVOBLOQUE INSTRUCCIONESC Nl end
+  | else EXPRESION NUEVOBLOQUE INSTRUCCIONESC Nl end
+  | LISTAELSE else otherwise NUEVOBLOQUE INSTRUCCIONESC Nl end
+
+SELECCIONIFF
+  : if EXPRESION NUEVOBLOQUE INSTSFUNC Nl end %prec then
+  | IFF LISTAELSEF
+
+IFF
+  : if EXPRESION NUEVOBLOQUE INSTSFUNC Nl end
+
+LISTAELSEF
+  : LISTAELSEF else EXPRESION NUEVOBLOQUE INSTSFUNC Nl end
+  | else otherwise NUEVOBLOQUE INSTSFUNC Nl end
+  | else EXPRESION NUEVOBLOQUE INSTSFUNC Nl end
+  | LISTAELSEF else otherwise NUEVOBLOQUE INSTSFUNC Nl end
+
+SELECCIONMATCH
+  : match LVALUE begin LISTACASOS Nl end
+  | match LVALUE begin LISTACASOS Nl DEFAULTCASE Nl end
+
+SELECCIONMATCHF
+  : match LVALUE begin LISTACASOSF Nl end
+  | match LVALUE begin LISTACASOSF Nl DEFAULTCASEF end
+
+LISTACASOS
+  : case TypeName NUEVOBLOQUE INSTRUCCIONESC Nl end
+  | LISTACASOS Nl case TypeName NUEVOBLOQUE INSTRUCCIONESC Nl end
+
+DEFAULTCASE
+  : case default NUEVOBLOQUE INSTRUCCIONESC Nl end
+
+LISTACASOSF
+  : case TypeName NUEVOBLOQUE INSTSFUNC Nl end
+  | LISTACASOSF Nl case TypeName NUEVOBLOQUE INSTSFUNC Nl end
+
+DEFAULTCASEF
+  : case default NUEVOBLOQUE INSTSFUNC Nl end
+
+REPETICIONDET
+  : for REPDETITER NUEVOBLOQUE INSTRUCCIONESL Nl end
+  | for REPDETARRAY NUEVOBLOQUE INSTRUCCIONESL Nl end
+
+REPETICIONDETF
+  : for REPDETITER NUEVOBLOQUE INSTSFUNCL Nl end
+  | for REPDETARRAY NUEVOBLOQUE INSTSFUNCL Nl end
+
+REPDETITER
+  : identifier colon TYPE from EXPRESION to EXPRESION
+  | identifier colon TYPE from EXPRESION to EXPRESION by EXPRESION
+
+REPDETARRAY
+  : identifier colon TYPE in EXPRESION
+
+ARRAY
+  : openSq CONTENIDO closeSq
+
+CONTENIDO
+  : CONTENIDO comma EXPRESION
+  | EXPRESION
+
+REPETICIONINDET
+  : while EXPRESION NUEVOBLOQUE INSTRUCCIONESL Nl end
+
+REPETICIONINDETF
+  : while EXPRESION NUEVOBLOQUE INSTSFUNCL Nl end
+
+INSTRUCCIONESC
+  : INSTRUCCIONESC Nl INSTRUCCIONC
+  | INSTRUCCIONC
+
+INSTRUCCIONC
+  : DEFVARIABLE
+  | MODVARIABLE
+  | DEFDETIPO
+  | SELECCIONIF
+  | SELECCIONMATCH
+  | REPETICIONDET
+  | REPETICIONINDET
+  | LLAMADA
+  | print open EXPRESION close
+  | free open EXPRESION close
+
+INSTRUCCIONESL
+  : INSTRUCCIONESL Nl INSTRUCCIONL
+  | INSTRUCCIONL
+
+INSTRUCCIONL
+  : DEFVARIABLE
+  | MODVARIABLE
+  | DEFDETIPO
+  | SELECCIONIF
+  | SELECCIONMATCH
+  | REPETICIONDET
+  | REPETICIONINDET
+  | LLAMADA
+  | break
+  | print open EXPRESION close
+  | free open EXPRESION close
+
+LLAMADA
+  : identifier open close
+  | identifier open ARGLIST close
+  | TypeName point identifier open close
+  | TypeName point identifier open ARGLIST close
+
+ARGLIST
+  : EXPRESION
+  | ARGLIST comma EXPRESION
+
+EXPRESION
+  : LLAMADA
+  | ARRAY
+  | number
+  | character
+  | True
+  | False
+  | string
+  | not EXPRESION %prec not
+  | EXPRESION or EXPRESION
+  | EXPRESION and EXPRESION
+  | EXPRESION gt EXPRESION
+  | EXPRESION lt EXPRESION
+  | EXPRESION goet EXPRESION
+  | EXPRESION loet EXPRESION
+  | EXPRESION eq EXPRESION
+  | EXPRESION uneq EXPRESION
+  | EXPRESION plus EXPRESION
+  | EXPRESION minus EXPRESION
+  | EXPRESION mult EXPRESION
+  | EXPRESION div EXPRESION
+  | EXPRESION mod EXPRESION
+  | EXPRESION wdiv EXPRESION
+  | minus EXPRESION %prec uminus
+  | open EXPRESION close
+  | LVALUE
+  | input open close
+  | malloc open TYPE close
+  | stringify open EXPRESION close

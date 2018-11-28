@@ -1,0 +1,2 @@
+let x : Array <Int, 1> = [1,2,3,4,5]
+let y : Int = x[0]

@@ -1,0 +1,50 @@
+
+Boy UnionTest = Union {
+  let x: Int
+  let y: Bool
+  with
+
+  Tag Boingo = {
+    let z: Bool
+    let a: Union {
+      let b: Int
+      with
+
+      Tag Bingo = {
+        let c: String = "Bonus stage"
+      }
+
+      Tag Bango = {
+        let k: Float
+      }
+    }
+  }
+  Tag Nothing
+}
+
+Boy UnionTestsito = Union {
+  let y: Bool
+  let x: Int
+  with
+  Tag Nothing
+
+  Tag Boingo = {
+    let a: Union {
+      let b: Int
+      with
+      Tag Bango = {
+        let k: Float
+      }
+
+      Tag Bingo = {
+        let c: String = "Bonus stage"
+      }
+    }
+    let z: Bool
+  }
+}
+
+let x: UnionTest
+let y: UnionTestsito
+
+let z: Array<UnionTest, 1+1> = [x,y]

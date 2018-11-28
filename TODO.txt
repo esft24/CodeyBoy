@@ -1,0 +1,14 @@
+Deberia ser un error tener una declaracion de un apuntador sin asignarle ni una direccion ni un malloc
+Los tipos complejos se pasan completos en el return o es solo un apuntador con lo que se manejan?
+
+ExpMalloc { getTipoEx :: Type } --tamano?
+Unions
+Match debido a que faltan los unions
+Completar Lvalues por los lados izquierdos
+Cosas super complejas de arreglos
+Instrucciones de ietracion determinada falta lo que tenga que ver con arreglo y caracteres
+
+En la firma de entrada o salida, como colocamos los arreglos? Los tamaños son parte de la firma?
+No hay un token para elevar
+Concatenacion de Srtings
+Dope Vector para los arreglos

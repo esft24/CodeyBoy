@@ -1,0 +1,8 @@
+func fun($x: Char): Int {
+    let y: Int = 9
+    let prueba: Char = x
+    return 2 + 5
+}
+
+let w : Int = fun('a')
+x = fun('4') + fun('c')

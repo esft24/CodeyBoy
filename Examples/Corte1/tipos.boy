@@ -1,0 +1,31 @@
+if False {
+  Boy Queso = Int
+}
+
+Boy Edad = Int
+Boy Edad = Bool
+
+let f: Edad
+let g: Queso
+
+
+Boy NuevoReg = Reg {
+  let x: Int
+  let y: Float
+  let z: Reg {
+    let z: Bool
+  } = { z = True }
+}
+
+Boy Forma = Union {
+  let x: Int
+  let y: Int
+  with
+  Tag Cuadrado = {
+    let lado: Int
+  }
+
+  Tag Circulo = {
+    let radio: Int
+  }
+}

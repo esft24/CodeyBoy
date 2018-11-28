@@ -1,0 +1,22 @@
+Boy SoyUnico = Union {
+  let regalada: Int
+  with
+
+  Tag Sensatez = {
+    let cantidad: Int = 100000
+  }
+
+  Tag Carisma = {
+    let ser: Bool = True
+  }
+
+  Tag Inteligencia = {
+    let cantidad: Int = -1
+  }
+}
+
+let f: SoyUnico
+
+let x: Int = f.regalada
+let y: Int = f.regalado #<--
+

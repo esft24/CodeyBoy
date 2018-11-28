@@ -1,0 +1,103 @@
+goto $Main
+factorialIterativo:
+producto_factorialIterativo_4 := 1
+$Boy1 := n_factorialIterativo_0 + 1
+j_factorialIterativo_8 := 1
+$Label1:
+$Boy2 := $Boy1 - j_factorialIterativo_8
+ifeqz $Boy2 goto $Label2
+$Boy3 := j_factorialIterativo_8 * producto_factorialIterativo_4
+producto_factorialIterativo_4 := $Boy3
+j_factorialIterativo_8 := j_factorialIterativo_8 + 1
+goto $Label1
+$Label2:
+return producto_factorialIterativo_4
+factorialRecursivo:
+push 1
+push n_factorialRecursivo_0
+$Boy4 := call factorialRecursivoAux 2
+pop n_factorialRecursivo_0
+pop 1
+return $Boy4
+factorialRecursivoAux:
+$Boy5 := n_factorialRecursivoAux_0 == 1
+if $Boy5 goto $Label3
+goto $Label4
+$Label3:
+return producto_factorialRecursivoAux_4
+$Label4:
+$Boy6 := producto_factorialRecursivoAux_4 * n_factorialRecursivoAux_0
+$Boy7 := n_factorialRecursivoAux_0 - 1
+push $Boy6
+push $Boy7
+$Boy8 := call factorialRecursivoAux 2
+pop $Boy7
+pop $Boy6
+return $Boy8
+toInt:
+return 42
+$Main:
+usuarioQuiereSeguir_global_0 := True
+$Label5:
+ifnot usuarioQuiereSeguir_global_0 goto $Label6
+push "Calculo de numero factorial!"
+print()
+pop "Calculo de numero factorial!"
+push "Indique su numero"
+print()
+pop "Indique su numero"
+$Boy9 := input()
+push $Boy9
+$Boy10 := call toInt 1
+pop $Boy9
+n_global_4 := $Boy10
+push "Recursivo (R) o Iterativo (I)"
+print()
+pop "Recursivo (R) o Iterativo (I)"
+$Boy11 := input()
+seleccion_global_8 := $Boy11
+$Boy12 := seleccion_global_8 == "R"
+if $Boy12 goto $Label7
+$Boy13 := seleccion_global_8 == "I"
+if $Boy13 goto $Label8
+goto $Label9
+$Label7:
+push n_global_4
+$Boy14 := call factorialRecursivo 1
+pop n_global_4
+push $Boy14
+$Boy15 := string()
+pop $Boy14
+push $Boy15
+print()
+pop $Boy15
+goto $Label10
+$Label8:
+push n_global_4
+$Boy16 := call factorialIterativo 1
+pop n_global_4
+push $Boy16
+$Boy17 := string()
+pop $Boy16
+push $Boy17
+print()
+pop $Boy17
+goto $Label10
+$Label9:
+push "Seleccione una opcion valida"
+print()
+pop "Seleccione una opcion valida"
+$Label10:
+push "Desea continuar? (S/N)"
+print()
+pop "Desea continuar? (S/N)"
+$Boy18 := input()
+seleccion_global_8 := $Boy18
+$Boy19 := seleccion_global_8 == "N"
+if $Boy19 goto $Label11
+goto $Label12
+$Label11:
+usuarioQuiereSeguir_global_0 := False
+$Label12:
+goto $Label5
+$Label6:
